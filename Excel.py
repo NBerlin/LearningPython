@@ -1,0 +1,37 @@
+import xlwt
+x=1
+book = xlwt.Workbook(encoding="utf-8")
+antalLigor = int(input("Hur många ligor? "))
+file=open("bokningar.txt","a")
+while x<=antalLigor:
+    sheet=book.add_sheet("Division " +str(x))
+    lag1=input("lag1: ")
+    lag2=input("lag2: ")
+    lag3=input("lag3: ")
+    lag4=input("lag4: ")
+    file.write("Division " +str(x)+"\n"+lag1+" : 2\n"+lag2+" : 2\n"+lag3+" : 1\n"+lag4+" : 1\n\n")
+    sheet.write(0,2,"Hemmalag")
+    sheet.write(0,3,"Bortalag")
+    sheet.write(0,0,"Vecka")
+    sheet.write(2,2,lag1)
+    sheet.write(2,3,lag2)
+    sheet.write(3,2,lag3)
+    sheet.write(3,3,lag4)
+    sheet.write(5,2,lag1)
+    sheet.write(5,3,lag3)
+    sheet.write(6,2,lag2)
+    sheet.write(6,3,lag4)
+    sheet.write(8,2,lag4)
+    sheet.write(8,3,lag1)
+    sheet.write(9,2,lag2)
+    sheet.write(9,3,lag3)
+    x=x+1
+    sheet.write(2,0,"Vecka 1")
+    sheet.write(3,0,"Vecka 1")
+    sheet.write(5,0,"Vecka 2")
+    sheet.write(6,0,"Vecka 2")
+    sheet.write(8,0,"Vecka 3")
+    sheet.write(9,0,"Vecka 3")
+
+
+book.save("M.E.A.T Studentserie.xls")

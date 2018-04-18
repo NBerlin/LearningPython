@@ -1,9 +1,9 @@
 #öppnar/skapar en text.txt fil och är i append mode.
-file=open("test.txt","a")
+file= open("test.txt","a")
 while 1==1:
 
     myName = input("Vad heter du? ")
-    if myName=="stop":
+    if myName == "stop":
         break
     if myName=="print":
         file.close()

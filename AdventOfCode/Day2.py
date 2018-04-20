@@ -1,4 +1,4 @@
-input = open("24.txt","r")
+input = open("Day2.txt","r")
 puzzle =input.readlines()
 totalsum=0
 for s in puzzle:

@@ -4,6 +4,7 @@ numberOfValidLines =0
 for s in puzzle:
     print(s)
     line=s.split()
+    print(line)
     c=set(line)
     if len(c)==len(line):
         numberOfValidLines+=1

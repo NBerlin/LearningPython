@@ -11,8 +11,6 @@ while test:
         print(y)
         while test2:
             if puzzle-n>0:
-
-
                 n=2
             else:
                 puzzle=puzzle+n

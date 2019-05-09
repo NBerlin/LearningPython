@@ -1,22 +1,14 @@
 import collections
+testlist=[]
 class Node:
     def __init__(self,value):
         self.children = []
         self.value=value
     def addChild(self,c,c2):
-        self.children.append(c[1])
-        self.children.append(c2[1])
+        self.children.append(c[0])
+        self.children.append(c2[0])
     def getChildren(self):
-        return [self.children]
-def getChildren(n):
-    if type(n)==Node:
-        ch= n.getChildren()
-        for item in ch:
-            item.getChildren()
-    return n
-
-def findLowest(l):
-    return frequency.pop()
+        return self.children
 
 def makePair(first,second):
     newNode=[Node(first[1]+second[1]),first[1]+second[1]]
@@ -26,10 +18,11 @@ def listInsert(item):
     i=0
     for object in frequency:
         if object[1]>item[1]:
-            frequency.insert(i,item)
             break
         i+=1
-    frequency.append(item)
+    frequency.insert(i,item)
+    testlist.append(item)
+    
 
 
 file = open("alice.txt",mode='r')
@@ -45,13 +38,23 @@ frequency['NL']=nbrOfLines
 frequency['\x1a']=0
 frequency = sorted(frequency.items(), key=lambda x: x[1])
 frequency.pop(0)
-while len(frequency)!=2:
+while len(frequency)!=1:
     test=frequency.pop(0)
     test2=frequency.pop(0)
     makePair(test,test2)
 
-makePair(frequency.pop(0),frequency.pop(0))
-getChildren(frequency[0][0])
+testlist.reverse()
+for item in testlist:
+    temp=item[0].getChildren()
+    printlist=[]
+    for item2 in temp:
+        if type(item2)==Node:
+            printlist.append(item2.value)
+        else:
+            printlist.append(item2)
+            
+    print(item[1],printlist)
+
 
 
 
